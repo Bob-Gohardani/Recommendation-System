@@ -16,7 +16,6 @@ def unique_vals(rows, col):
 def class_counts(rows):
     counts = {}
     for row in rows:
-        # in our dataset format, the label is always the last column
         label = row[-1]
         if label not in counts:
             counts[label] = 0
@@ -35,8 +34,7 @@ class Question:
         self.value = value
 
     def match(self, example):
-        # Compare the feature value in an example to the
-        # feature value in this question.
+        # Compare the feature value in an example to the feature value in this question.
         val = example[self.column]
         if is_numeric(val):
             return val >= self.value
@@ -44,8 +42,7 @@ class Question:
             return val == self.value
 
     def __repr__(self):
-        # This is just a helper method to print
-        # the question in a readable format.
+        # This is just a helper method to print the question in a readable format.
         condition = "=="
         if is_numeric(self.value):
             condition = ">="
@@ -82,8 +79,7 @@ def gini(rows):
 
 def info_gain(left, right, current_uncertainty):
     """Information Gain.
-    The uncertainty of the starting node, minus the weighted impurity of
-    two child nodes.
+    The uncertainty of the starting node, minus the weighted impurity of two child nodes.
     """
     p = float(len(left) / len(left) + len(right))
     # whatever probabilty of left is, right is 1- p_left
