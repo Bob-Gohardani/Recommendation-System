@@ -55,8 +55,6 @@ for l in l1:
     else:
         DataSet[str(int(N[1]))].append(N[2:])
 
-# print(DataSet['1642'][0])  = [MovieID, Rating, F1, F2, F3, F4]
-
 #looping through k from 1 to 10 to find proper neighbourhood:
 def euclideanDistance(inst1, inst2):
     distance = 0
