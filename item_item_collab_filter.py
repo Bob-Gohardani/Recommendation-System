@@ -6,9 +6,8 @@ import numpy as np
 
 
 DataSet = {} # for users
-DataSet2 = {}
+DataSet2 = {} # for movies
 relations = []
-#movies = [] # for movies
 relations = {}
 with open('train.csv', 'rb') as f:
     reader = csv.reader(f)
@@ -44,7 +43,7 @@ def movieRelation():
                     for item2 in value:
                         if (item1[0] == item2[0]) and (item1[1] !=0 or item2[1] != 0):
                             up += (item1[1]-movie_avg) * (item2[1] - other_avg)
-                            #down *= math.sqrt((item1[1]-movie_avg)**2 + (item2[1]-other_avg)**2)
+                      
                             temp1.append(item1[1])
                             temp2.append(item2[1])
                             break
